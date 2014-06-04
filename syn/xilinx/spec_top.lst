@@ -1,0 +1,10 @@
+vhdl work       "../../rtl/spec_si57x/vhdl/pulse2pulse.vhd"
+vhdl work       "../../rtl/spec_si57x/vhdl/i2c_master_stellar_cmd.vhd"
+vhdl work       "../../rtl/spec_si57x/vhdl/i2c_master_bit_ctrl.vhd"
+vhdl work       "../../rtl/spec_si57x/vhdl/i2c_master_byte_ctrl.vhd"
+vhdl work       "../../rtl/spec_si57x/vhdl/i2c_master.vhd"
+vhdl work       "../../rtl/spec_si57x/vhdl/i2c_master_top.vhd"
+vhdl work       "../../rtl/spec_si57x/vhdl/spec_si57x.vhd"
+
+vhdl work       "../../rtl/spec_top/vhdl/fofb_cc_top_wrapper.vhd"
+vhdl work       "../../rtl/spec_top/vhdl/spec_top.vhd"

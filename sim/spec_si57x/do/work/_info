@@ -1,0 +1,417 @@
+m255
+K4
+z2
+13
+cModel Technology
+Z0 d/home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do
+!s112 0.1
+!i10d 8192
+!i10e 25
+!i10f 100
+Ei2c_master
+Z1 w1401576499
+Z2 DPx4 ieee 18 std_logic_unsigned 0 22 @_jbHPR7i^Jh?`2fDCO`m3
+Z3 DPx8 synopsys 10 attributes 0 22 Ufh[o<EL=]n;G2jV5DZ_z3
+Z4 DPx4 ieee 14 std_logic_misc 0 22 nZdh4oZ?X@`h[Td?AUOFY0
+Z5 DPx4 ieee 15 std_logic_arith 0 22 I`lKR?Ob>E^B_e2VdVLiQ0
+Z6 DPx3 std 6 textio 0 22 Y8d?=bLj9m4jiPLbo;>GT0
+Z7 DPx4 ieee 14 std_logic_1164 0 22 1bm?@Gd;P>[>_lN8Do9gP3
+Z8 d/home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do
+Z9 8../../../rtl/spec_si57x/vhdl/i2c_master.vhd
+Z10 F../../../rtl/spec_si57x/vhdl/i2c_master.vhd
+l0
+L8
+VNEDZBITN2f?>aHhbKTCRD0
+Z11 OE;C;10.2c;57
+31
+Z12 !s110 1401743900
+Z13 !s108 1401743900.344307
+Z14 !s90 -reportprogress|300|-explicit|-93|../../../rtl/spec_si57x/vhdl/i2c_master.vhd|
+Z15 !s107 ../../../rtl/spec_si57x/vhdl/i2c_master.vhd|
+Z16 o-explicit -93
+Z17 tExplicit 1
+!s100 @6nHk<6hiZNOd>4=W4ZmP1
+!i10b 1
+!i111 0
+Ai2c_master_syn
+R2
+R3
+R4
+R5
+R6
+R7
+Z18 DEx4 work 10 i2c_master 0 22 NEDZBITN2f?>aHhbKTCRD0
+31
+R12
+l203
+L32
+V9A;z9XJ@mX=@K<gG2U2mL1
+R11
+R13
+R14
+R15
+R16
+R17
+!s100 l_>X11[4ElU^2chnj=NB40
+!i10b 1
+!i111 0
+Ei2c_master_bit_ctrl
+Z19 w1401569536
+R5
+R6
+R7
+R8
+Z20 8../../../rtl/spec_si57x/vhdl/i2c_master_bit_ctrl.vhd
+Z21 F../../../rtl/spec_si57x/vhdl/i2c_master_bit_ctrl.vhd
+l0
+L148
+V`h3Eco?FKRJBAMHRZLj4o2
+R11
+31
+Z22 !s110 1401743899
+Z23 !s108 1401743899.782105
+Z24 !s90 -reportprogress|300|-explicit|-93|../../../rtl/spec_si57x/vhdl/i2c_master_bit_ctrl.vhd|
+Z25 !s107 ../../../rtl/spec_si57x/vhdl/i2c_master_bit_ctrl.vhd|
+R16
+R17
+!s100 oZYoaLR]B2g1>Uce_fca<2
+!i10b 1
+!i111 0
+Astructural
+R5
+R6
+R7
+DEx4 work 19 i2c_master_bit_ctrl 0 22 `h3Eco?FKRJBAMHRZLj4o2
+31
+R22
+l196
+L175
+V@MOV38QK9NXT;Dc2EmCb_0
+R11
+R23
+R24
+R25
+R16
+R17
+!s100 @fX2Bm;K2=gl`8;m^dC0M2
+!i10b 1
+!i111 0
+Ei2c_master_byte_ctrl
+R19
+R5
+R6
+R7
+R8
+Z26 8../../../rtl/spec_si57x/vhdl/i2c_master_byte_ctrl.vhd
+Z27 F../../../rtl/spec_si57x/vhdl/i2c_master_byte_ctrl.vhd
+l0
+L78
+VC]6;=:>W<fI]a3zY49Z8;2
+R11
+31
+R12
+Z28 !s108 1401743900.031391
+Z29 !s90 -reportprogress|300|-explicit|-93|../../../rtl/spec_si57x/vhdl/i2c_master_byte_ctrl.vhd|
+Z30 !s107 ../../../rtl/spec_si57x/vhdl/i2c_master_byte_ctrl.vhd|
+R16
+R17
+!s100 iX>WP;TAN^738U=BNc9PD0
+!i10b 1
+!i111 0
+Astructural
+R5
+R6
+R7
+DEx4 work 20 i2c_master_byte_ctrl 0 22 C]6;=:>W<fI]a3zY49Z8;2
+31
+R12
+l161
+L112
+VR7BhZQNaRzd72d]9CRYF?3
+R11
+R28
+R29
+R30
+R16
+R17
+!s100 O[Ff8<P0Tg:a;8QhdQKOM3
+!i10b 1
+!i111 0
+Ei2c_master_stellar_cmd
+R19
+R3
+R4
+R5
+R6
+R7
+R2
+R8
+Z31 8../../../rtl/spec_si57x/vhdl/i2c_master_stellar_cmd.vhd
+Z32 F../../../rtl/spec_si57x/vhdl/i2c_master_stellar_cmd.vhd
+l0
+L71
+V;ZHc`YHeEZ>e;T[fbUSZX3
+R11
+31
+R12
+Z33 !s108 1401743900.242198
+Z34 !s90 -reportprogress|300|-explicit|-93|../../../rtl/spec_si57x/vhdl/i2c_master_stellar_cmd.vhd|
+Z35 !s107 ../../../rtl/spec_si57x/vhdl/i2c_master_stellar_cmd.vhd|
+R16
+R17
+!s100 kJ9Cdh9B1gVW6dSdTAlbR2
+!i10b 1
+!i111 0
+Aarch_i2c_master_stellar_cmd
+R3
+R4
+R5
+R6
+R7
+R2
+DEx4 work 22 i2c_master_stellar_cmd 0 22 ;ZHc`YHeEZ>e;T[fbUSZX3
+31
+R12
+l140
+L103
+V9WV;_mV^dVmK9WHfRoIAb1
+R11
+R33
+R34
+R35
+R16
+R17
+!s100 LO;3VXemIJ8WemmaKdDYX0
+!i10b 1
+!i111 0
+Ei2c_master_top
+R19
+R5
+R6
+R7
+R8
+Z36 8../../../rtl/spec_si57x/vhdl/i2c_master_top.vhd
+Z37 F../../../rtl/spec_si57x/vhdl/i2c_master_top.vhd
+l0
+L74
+VnI:cAN9hf8;fIeGOnA:5i0
+R11
+31
+R12
+Z38 !s108 1401743900.134727
+Z39 !s90 -reportprogress|300|-explicit|-93|../../../rtl/spec_si57x/vhdl/i2c_master_top.vhd|
+Z40 !s107 ../../../rtl/spec_si57x/vhdl/i2c_master_top.vhd|
+R16
+R17
+!s100 5k@]oG4EJZXMllV`Cigeg3
+!i10b 1
+!i111 0
+Astructural
+R5
+R6
+R7
+DEx4 work 14 i2c_master_top 0 22 nI:cAN9hf8;fIeGOnA:5i0
+31
+R12
+l170
+L102
+V=V=Pn[1L;X2dCcJN1OGKi3
+R11
+R38
+R39
+R40
+R16
+R17
+!s100 FGz_RK=MhC^b5YWOMC9g=2
+!i10b 1
+!i111 0
+Ei2c_slave_model
+Z41 w1401569934
+R3
+R4
+R2
+R5
+R6
+R7
+R8
+Z42 8../bench/i2c_slave_model.vhd
+Z43 F../bench/i2c_slave_model.vhd
+l0
+L75
+V6e7IZXmdW[>aIU8^3dT`Y1
+R11
+31
+R12
+Z44 !s108 1401743900.724651
+Z45 !s90 -reportprogress|300|-explicit|-93|../bench/i2c_slave_model.vhd|
+Z46 !s107 ../bench/i2c_slave_model.vhd|
+R16
+R17
+!s100 igdk703]o4oJzM[8;mbZd0
+!i10b 1
+!i111 0
+Asyn
+R3
+R4
+R2
+R5
+R6
+R7
+Z47 DEx4 work 15 i2c_slave_model 0 22 6e7IZXmdW[>aIU8^3dT`Y1
+31
+R12
+l125
+L86
+VJQUXfYZiG0XB^269XFFUD3
+R11
+R44
+R45
+R46
+R16
+R17
+!s100 L^0K76mSJh@GLgQA5`PlV2
+!i10b 1
+!i111 0
+Epulse2pulse
+Z48 w1401569644
+R3
+R4
+R2
+R5
+R6
+R7
+R8
+Z49 8../../../rtl/spec_si57x/vhdl/pulse2pulse.vhd
+Z50 F../../../rtl/spec_si57x/vhdl/pulse2pulse.vhd
+l0
+L8
+VO@30CBd=f6l_@S`z3[<UT3
+R11
+31
+R22
+Z51 !s108 1401743899.921941
+Z52 !s90 -reportprogress|300|-explicit|-93|../../../rtl/spec_si57x/vhdl/pulse2pulse.vhd|
+Z53 !s107 ../../../rtl/spec_si57x/vhdl/pulse2pulse.vhd|
+R16
+R17
+!s100 bZiDL9hDPFTg@WTTca_1o0
+!i10b 1
+!i111 0
+Asyn
+R3
+R4
+R2
+R5
+R6
+R7
+DEx4 work 11 pulse2pulse 0 22 O@30CBd=f6l_@S`z3[<UT3
+31
+R22
+l48
+L19
+Vi=jQlT;zE;G?gk2PGBJkR0
+R11
+R51
+R52
+R53
+R16
+R17
+!s100 keaKESHF>?oV^S2YKP6:]1
+!i10b 1
+!i111 0
+Espec_si57x
+Z54 w1401743894
+Z55 DPx6 unisim 11 vcomponents 0 22 GSe5`g9<H?BhoL6KEg9iZ3
+Z56 DPx4 ieee 11 numeric_std 0 22 WES[o8HS0jHV[MIXQk2Ha1
+R6
+R7
+R8
+Z57 8../../../rtl/spec_si57x/vhdl/spec_si57x.vhd
+Z58 F../../../rtl/spec_si57x/vhdl/spec_si57x.vhd
+l0
+L8
+V6<8o=Nk]^2ch[;fQYWz8@1
+R11
+31
+R12
+Z59 !s108 1401743900.455952
+Z60 !s90 -reportprogress|300|-explicit|-93|../../../rtl/spec_si57x/vhdl/spec_si57x.vhd|
+Z61 !s107 ../../../rtl/spec_si57x/vhdl/spec_si57x.vhd|
+R16
+R17
+!s100 Rk9oa?43I^8LMoK<4P6X63
+!i10b 1
+!i111 0
+Artl
+R2
+R3
+R4
+R5
+R18
+R55
+R56
+R6
+R7
+Z62 DEx4 work 10 spec_si57x 0 22 6<8o=Nk]^2ch[;fQYWz8@1
+31
+R12
+l77
+L21
+Vc;7XA8=7BA@XDaK^GBk2h2
+R11
+R59
+R60
+R61
+R16
+R17
+!s100 6]c[LU67R[cn87Y<I9cf81
+!i10b 1
+!i111 0
+Espec_si57x_tb
+Z63 w1401743326
+R56
+R6
+R7
+R8
+Z64 8../bench/spec_si57x_tb.vhd
+Z65 F../bench/spec_si57x_tb.vhd
+l0
+L35
+VHm4B@7?B5XWM]27hi<icj1
+R11
+31
+R12
+Z66 !s108 1401743900.834683
+Z67 !s90 -reportprogress|300|-explicit|-93|../bench/spec_si57x_tb.vhd|
+Z68 !s107 ../bench/spec_si57x_tb.vhd|
+R16
+R17
+!s100 `KbN>b4UogUP]VNF8T[E=1
+!i10b 1
+!i111 0
+Abehavior
+R3
+R4
+R2
+R5
+R47
+R55
+R62
+R56
+R6
+R7
+DEx4 work 13 spec_si57x_tb 0 22 Hm4B@7?B5XWM]27hi<icj1
+31
+l58
+L38
+VDQ^_IGU`WYnKGcU?zGEfn2
+R11
+R66
+R67
+R68
+R16
+R17
+!s110 1401743901
+!s100 aC[1MXATXblVY;SIL124;3
+!i10b 1
+!i111 0

@@ -1,0 +1,32 @@
+# Fixed 125MHz FPGA Clock input
+NET "fpga_clk_n"    LOC = F10 | IOSTANDARD = "LVDS_25";
+NET "fpga_clk_p"    LOC = G9  | IOSTANDARD = "LVDS_25";
+
+NET "fpga_clk_p" TNM_NET = fpga_clk_p;
+TIMESPEC TS_fpga_clk_p = PERIOD "fpga_clk_p" 8 ns HIGH 50%;
+
+# SFP Cage
+NET "sfp_ena"       LOC = F17;
+
+# Si57x I/O
+NET "si57x_oe"      LOC = H13;
+NET "si57x_sda"     LOC = A17;
+NET "si57x_scl"     LOC = A18;
+
+###############################################################################
+# Communication Controller related Constraints
+###############################################################################
+NET  "si57x_clk_p"        LOC = "F14" | IOSTANDARD = "LVDS_25";
+NET  "si57x_clk_n"        LOC = "F15" | IOSTANDARD = "LVDS_25";
+
+INST "fofb_cc_top_wrapper/fofb_cc_top/GT_IF/GTPA_TILE/gtpa1_dual_inst" LOC=GTPA1_DUAL_X1Y0;
+
+NET "si57x_clk_p" TNM_NET = GT_REFCLK;
+TIMESPEC TS_gtx_clk_p = PERIOD "GT_REFCLK" 106.25 MHz HIGH 50%;
+
+NET "fofb_cc_top_wrapper/fofb_cc_top/userclk" TNM_NET = USERCLK;
+TIMESPEC TS_USERCLK = PERIOD "USERCLK" 106.25 MHz HIGH 50%;
+
+NET "fofb_cc_top_wrapper/fofb_cc_top/userclk_2x" TNM_NET = USERCLK_2X;
+TIMESPEC TS_USERCLK_2X = PERIOD "USERCLK_2X" 212.5 MHz HIGH 50%;
+

@@ -1,0 +1,28 @@
+# Top-level design name
+SYSTEM = spec_top
+
+# Design dependant IP diretories
+CC_IP_DIR = ../../rtl/spec_commsctrl/rtl
+
+# Coregen IP netlist files
+NETLIST_DIR = ../implementation
+COREGEN_NGC_FILES = $(NETLIST_DIR)/fofb_cc_rx_fifo.ngc \
+                    $(NETLIST_DIR)/fofb_cc_tx_fifo.ngc
+
+
+# ISE tools outputs
+LIST_FILE = $(SYSTEM).lst
+SCR_FILE = $(SYSTEM).scr
+XCF_FILE = $(SYSTEM).xcf
+UCF_FILE = $(SYSTEM).ucf
+
+POSTSYN_NETLIST = $(SYSTEM).ngc
+NGD_FILE = $(SYSTEM).ngd
+MAPPED_NCD_FILE = $(SYSTEM)_map.ncd
+ROUTED_NCD_FILE = $(SYSTEM).ncd
+BIT_FILE = $(SYSTEM).bit
+PROM_FILE = $(SYSTEM).mcs
+BMM_FILE = $(SYSTEM).bmm
+
+# Custom Project dependant defines
+

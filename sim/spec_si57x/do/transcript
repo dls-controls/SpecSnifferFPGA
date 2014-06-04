@@ -1,0 +1,211 @@
+# //  Questa Sim
+# //  Version 10.2c linux Jul 18 2013
+# //
+# //  Copyright 1991-2013 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+do sim.do
+# QuestaSim vcom 10.2c Compiler 2013.07 Jul 18 2013
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity i2c_master_bit_ctrl
+# -- Compiling architecture structural of i2c_master_bit_ctrl
+# QuestaSim vcom 10.2c Compiler 2013.07 Jul 18 2013
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package ATTRIBUTES
+# -- Loading package std_logic_misc
+# -- Compiling entity pulse2pulse
+# -- Compiling architecture syn of pulse2pulse
+# QuestaSim vcom 10.2c Compiler 2013.07 Jul 18 2013
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity i2c_master_byte_ctrl
+# -- Compiling architecture structural of i2c_master_byte_ctrl
+# QuestaSim vcom 10.2c Compiler 2013.07 Jul 18 2013
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity i2c_master_top
+# -- Compiling architecture structural of i2c_master_top
+# QuestaSim vcom 10.2c Compiler 2013.07 Jul 18 2013
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package ATTRIBUTES
+# -- Loading package std_logic_misc
+# -- Compiling entity i2c_master_stellar_cmd
+# -- Compiling architecture arch_i2c_master_stellar_cmd of i2c_master_stellar_cmd
+# QuestaSim vcom 10.2c Compiler 2013.07 Jul 18 2013
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package ATTRIBUTES
+# -- Loading package std_logic_misc
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity i2c_master
+# -- Compiling architecture i2c_master_syn of i2c_master
+# QuestaSim vcom 10.2c Compiler 2013.07 Jul 18 2013
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package VCOMPONENTS
+# -- Compiling entity spec_si57x
+# -- Compiling architecture rtl of spec_si57x
+# -- Loading package std_logic_arith
+# -- Loading package ATTRIBUTES
+# -- Loading package std_logic_misc
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading entity i2c_master
+# QuestaSim vcom 10.2c Compiler 2013.07 Jul 18 2013
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package ATTRIBUTES
+# -- Loading package std_logic_misc
+# -- Compiling entity i2c_slave_model
+# -- Compiling architecture syn of i2c_slave_model
+# QuestaSim vcom 10.2c Compiler 2013.07 Jul 18 2013
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity spec_si57x_tb
+# -- Compiling architecture behavior of spec_si57x_tb
+# -- Loading package VCOMPONENTS
+# -- Loading entity spec_si57x
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package ATTRIBUTES
+# -- Loading package std_logic_misc
+# -- Loading entity i2c_slave_model
+# vsim -lib work -voptargs=\"+acc\" -t 1ps -novopt work.spec_si57x_tb 
+# Loading std.standard
+# Refreshing /home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do/work.spec_si57x_tb(behavior)
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading unisim.vcomponents
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading synopsys.attributes
+# Loading ieee.std_logic_misc(body)
+# Loading work.spec_si57x_tb(behavior)
+# Refreshing /home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do/work.spec_si57x(rtl)
+# Loading work.spec_si57x(rtl)
+# Refreshing /home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do/work.i2c_master(i2c_master_syn)
+# Loading work.i2c_master(i2c_master_syn)
+# Refreshing /home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do/work.i2c_master_stellar_cmd(arch_i2c_master_stellar_cmd)
+# Loading work.i2c_master_stellar_cmd(arch_i2c_master_stellar_cmd)
+# Refreshing /home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do/work.pulse2pulse(syn)
+# Loading work.pulse2pulse(syn)
+# Refreshing /home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do/work.i2c_master_top(structural)
+# Loading work.i2c_master_top(structural)
+# Refreshing /home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do/work.i2c_master_byte_ctrl(structural)
+# Loading work.i2c_master_byte_ctrl(structural)
+# Refreshing /home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do/work.i2c_master_bit_ctrl(structural)
+# Loading work.i2c_master_bit_ctrl(structural)
+# Loading unisim.iobuf(iobuf_v)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading unisim.vpkg(body)
+# Loading unisim.srl16e(srl16e_v)
+# Refreshing /home/iu42/hardware/trunk/FPGA/spec_sniffer/sim/spec_si57x/do/work.i2c_slave_model(syn)
+# Loading work.i2c_slave_model(syn)
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /spec_si57x_tb/adt7411
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /spec_si57x_tb/uut/i2c_master_inst/i2c_master_top_inst/byte_ctrl
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /spec_si57x_tb/uut/i2c_master_inst
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /spec_si57x_tb/uut/i2c_master_inst
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /spec_si57x_tb/uut/i2c_master_inst
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 0  Instance: /spec_si57x_tb/uut/i2c_master_inst
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 0  Instance: /spec_si57x_tb/uut/i2c_master_inst
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 0  Instance: /spec_si57x_tb/uut/i2c_master_inst
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 0  Instance: /spec_si57x_tb/uut/i2c_master_inst/i2c_master_top_inst/byte_ctrl/bit_ctrl
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 0  Instance: /spec_si57x_tb/uut/i2c_master_inst/i2c_master_top_inst/byte_ctrl/bit_ctrl
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 0  Instance: /spec_si57x_tb/uut/i2c_master_inst/i2c_master_top_inst/byte_ctrl/bit_ctrl
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 0  Region: /spec_si57x_tb/uut/i2c_master_inst/i2c_master_top_inst/byte_ctrl/bit_ctrl/bus_status_ctrl
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 0  Region: /spec_si57x_tb/uut/i2c_master_inst/i2c_master_top_inst/byte_ctrl/bit_ctrl/bus_status_ctrl
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 0  Region: /spec_si57x_tb/uut/i2c_master_inst/i2c_master_top_inst/byte_ctrl/bit_ctrl/bus_status_ctrl
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 0  Region: /spec_si57x_tb/uut/i2c_master_inst/i2c_master_top_inst/byte_ctrl/bit_ctrl/bus_status_ctrl
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 5  Instance: /spec_si57x_tb/adt7411
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 4 ns  Iteration: 5  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; stop condition detected
+#    Time: 4 ns  Iteration: 5  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; start condition detected 
+#    Time: 108220 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 118221 ns  Iteration: 0  Instance: /spec_si57x_tb/adt7411
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 129173 ns  Iteration: 0  Instance: /spec_si57x_tb/adt7411
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 139757 ns  Iteration: 0  Instance: /spec_si57x_tb/adt7411
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 150341 ns  Iteration: 0  Instance: /spec_si57x_tb/adt7411
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 160925 ns  Iteration: 0  Instance: /spec_si57x_tb/adt7411
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 171509 ns  Iteration: 0  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; command byte received (write)
+#    Time: 197260 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; address received. 
+#    Time: 292516 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; data block write 
+#    Time: 387772 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; stop condition detected
+#    Time: 408940 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; start condition detected 
+#    Time: 506940 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; command byte received (write)
+#    Time: 595924 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; address received. 
+#    Time: 691180 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; data block write 
+#    Time: 786436 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; stop condition detected
+#    Time: 807604 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; start condition detected 
+#    Time: 907604 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+# ** Note: DEBUG i2c_slave; command byte received (write)
+#    Time: 996604 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+run 10ms
+# ** Note: DEBUG i2c_slave; address received. 
+#    Time: 1091860 ns  Iteration: 3  Instance: /spec_si57x_tb/adt7411
+quit

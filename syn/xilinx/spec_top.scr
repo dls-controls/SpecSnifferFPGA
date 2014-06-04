@@ -1,0 +1,15 @@
+run
+-ifn spec_top.lst
+-ifmt mixed
+-ofn spec_top
+-ofmt NGC
+-p xc6slx45t-3fgg484
+-top spec_top
+-uc ../constr/spec_top.xcf
+-keep_hierarchy No
+-read_cores Yes
+-iuc NO
+-sd {../implementation}
+-opt_mode Speed
+-opt_level 1
+-ram_style Block
