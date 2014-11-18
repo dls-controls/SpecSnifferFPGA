@@ -1,10 +1,24 @@
+###############################################################################
+# 20MHz Local Clock input
+###############################################################################
+#NET "clk20_vcxo_i" LOC = H12;
+#NET "clk20_vcxo_i" IOSTANDARD = "LVCMOS25";
+#
+#NET "clk20_vcxo_i" TNM_NET = "clk20_vcxo_i_grp";
+#TIMESPEC TS_clk20_vcxo_i = PERIOD "clk20_vcxo_i_grp" 50 ns HIGH 50%;
+
+###############################################################################
 # Fixed 125MHz FPGA Clock input
-NET "fpga_clk_n"    LOC = F10 | IOSTANDARD = "LVDS_25";
-NET "fpga_clk_p"    LOC = G9  | IOSTANDARD = "LVDS_25";
+###############################################################################
+#NET "fpga_clk_n"    LOC = F10 | IOSTANDARD = "LVDS_25";
+#NET "fpga_clk_p"    LOC = G9  | IOSTANDARD = "LVDS_25";
+#
+#NET "fpga_clk_p" TNM_NET = fpga_clk_p;
+#TIMESPEC TS_fpga_clk_p = PERIOD "fpga_clk_p" 8 ns HIGH 50%;
 
-NET "fpga_clk_p" TNM_NET = fpga_clk_p;
-TIMESPEC TS_fpga_clk_p = PERIOD "fpga_clk_p" 8 ns HIGH 50%;
-
+###############################################################################
+# Communication Controller related Constraints
+###############################################################################
 # SFP Cage
 NET "sfp_ena"       LOC = F17;
 
@@ -13,20 +27,204 @@ NET "si57x_oe"      LOC = H13;
 NET "si57x_sda"     LOC = A17;
 NET "si57x_scl"     LOC = A18;
 
-###############################################################################
-# Communication Controller related Constraints
-###############################################################################
-NET  "si57x_clk_p"        LOC = "F14" | IOSTANDARD = "LVDS_25";
-NET  "si57x_clk_n"        LOC = "F15" | IOSTANDARD = "LVDS_25";
-
-INST "fofb_cc_top_wrapper/fofb_cc_top/GT_IF/GTPA_TILE/gtpa1_dual_inst" LOC=GTPA1_DUAL_X1Y0;
+NET  "si57x_clk_p"  LOC = "F14" | IOSTANDARD = "LVDS_25";
+NET  "si57x_clk_n"  LOC = "F15" | IOSTANDARD = "LVDS_25";
+#NET  "si57x_clk_p"  CLOCK_DEDICATED_ROUTE = FALSE;
 
 NET "si57x_clk_p" TNM_NET = GT_REFCLK;
 TIMESPEC TS_gtx_clk_p = PERIOD "GT_REFCLK" 106.25 MHz HIGH 50%;
 
-NET "fofb_cc_top_wrapper/fofb_cc_top/userclk" TNM_NET = USERCLK;
+INST "fofb_cc_top_wrapper_inst/fofb_cc_top/GT_IF/GTPA_TILE/gtpa1_dual_inst" LOC=GTPA1_DUAL_X1Y0;
+
+NET "fofb_cc_top_wrapper_inst/fofb_cc_top/txoutclk" TNM_NET = USERCLK;
 TIMESPEC TS_USERCLK = PERIOD "USERCLK" 106.25 MHz HIGH 50%;
 
-NET "fofb_cc_top_wrapper/fofb_cc_top/userclk_2x" TNM_NET = USERCLK_2X;
+NET "fofb_cc_top_wrapper_inst/fofb_cc_top/userclk_2x" TNM_NET = USERCLK_2X;
 TIMESPEC TS_USERCLK_2X = PERIOD "USERCLK_2X" 212.5 MHz HIGH 50%;
+
+###############################################################################
+# Gennum 4124 Core Constraints
+###############################################################################
+
+NET "gn4124_core_inst/rst_*" TIG;
+NET "gn4124_core_inst/cmp_clk_in/P_clk" TNM_NET = gn4124_core_inst/cmp_clk_in/P_clk;
+TIMESPEC TS_gn4124_core_inst_cmp_clk_in_P_clk = PERIOD "gn4124_core_inst/cmp_clk_in/P_clk" 5 ns HIGH 50%;
+
+#--------------------------------
+#--  Reset from Gennum GN4124  --
+#--------------------------------
+NET "L_RST_N" LOC = N20;
+NET "L_RST_N" IOSTANDARD = "LVCMOS18";
+NET "L_RST_N" TIG;
+
+NET "L_CLKN" LOC = N19;
+NET "L_CLKN" IOSTANDARD = "DIFF_SSTL18_I";
+NET "L_CLKP" LOC = P20;
+NET "L_CLKP" IOSTANDARD = "DIFF_SSTL18_I";
+NET "L_CLKp" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "L_CLKP" TNM_NET = "l_clkp_grp";
+TIMESPEC TS_l_clkp = PERIOD "l_clkp_grp" 5 ns HIGH 50%;
+
+NET "P2L_CLKP" TNM_NET = "p2l_clkp_grp";
+TIMESPEC TS_p2l_clkp = PERIOD "p2l_clkp_grp" 5 ns HIGH 50%;
+NET "P2L_CLKN" TNM_NET = "p2l_clkn_grp";
+TIMESPEC TS_p2l_clkn = PERIOD "p2l_clkn_grp" 5 ns HIGH 50%;
+
+INST "gn4124_core_inst/l2p_rdy_t" IOB=FALSE;
+INST "gn4124_core_inst/l_wr_rdy_t*" IOB=FALSE;
+
+#------------------------------------
+#--  Gennum GN4124 GPIO Interface  --
+#------------------------------------
+NET "GPIO[0]" LOC = U16;
+NET "GPIO[0]" IOSTANDARD = "LVCMOS25";
+NET "GPIO[1]" LOC = AB19;
+NET "GPIO[1]" IOSTANDARD = "LVCMOS25";
+
+
+#-----------------------------------------
+#--  PCIe to local [Inbound Data] - RX  --
+#-----------------------------------------
+NET "P2L_RDY" LOC = J16;
+NET "P2L_RDY" IOSTANDARD = "SSTL18_I";
+
+NET "P2L_CLKN" LOC = M19;
+NET "P2L_CLKN" IOSTANDARD = "DIFF_SSTL18_I";
+
+NET "P2L_CLKP" LOC = M20;
+NET "P2L_CLKP" IOSTANDARD = "DIFF_SSTL18_I";
+
+NET "P2L_DATA[0]" LOC = K20;
+NET "P2L_DATA[0]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[1]" LOC = H22;
+NET "P2L_DATA[1]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[2]" LOC = H21;
+NET "P2L_DATA[2]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[3]" LOC = L17;
+NET "P2L_DATA[3]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[4]" LOC = K17;
+NET "P2L_DATA[4]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[5]" LOC = G22;
+NET "P2L_DATA[5]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[6]" LOC = G20;
+NET "P2L_DATA[6]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[7]" LOC = K18;
+NET "P2L_DATA[7]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[8]" LOC = K19;
+NET "P2L_DATA[8]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[9]" LOC = H20;
+NET "P2L_DATA[9]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[10]" LOC = J19;
+NET "P2L_DATA[10]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[11]" LOC = E22;
+NET "P2L_DATA[11]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[12]" LOC = E20;
+NET "P2L_DATA[12]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[13]" LOC = F22;
+NET "P2L_DATA[13]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[14]" LOC = F21;
+NET "P2L_DATA[14]" IOSTANDARD = "SSTL18_I";
+NET "P2L_DATA[15]" LOC = H19;
+NET "P2L_DATA[15]" IOSTANDARD = "SSTL18_I";
+
+NET "P2L_DFRAME" LOC = J22;
+NET "P2L_DFRAME" IOSTANDARD = "SSTL18_I";
+
+NET "P2L_VALID" LOC = L19;
+NET "P2L_VALID" IOSTANDARD = "SSTL18_I";
+
+
+#-------------------------------------
+#--  Inbound Buffer Request/Status  --
+#-------------------------------------
+NET "P_WR_REQ[0]" LOC = M22;
+NET "P_WR_REQ[0]" IOSTANDARD = "SSTL18_I";
+NET "P_WR_REQ[1]" LOC = M21;
+NET "P_WR_REQ[1]" IOSTANDARD = "SSTL18_I";
+
+NET "P_WR_RDY[0]" LOC = L15;
+NET "P_WR_RDY[0]" IOSTANDARD = "SSTL18_I";
+NET "P_WR_RDY[1]" LOC = K16;
+NET "P_WR_RDY[1]" IOSTANDARD = "SSTL18_I";
+
+NET "RX_ERROR" LOC = J17;
+NET "RX_ERROR" IOSTANDARD = "SSTL18_I";
+
+
+#----------------------------------------------
+#--  Local to Parallel [Outbound Data] - TX  --
+#----------------------------------------------
+NET "L2P_DATA[0]" LOC = P16;
+NET "L2P_DATA[0]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[1]" LOC = P21;
+NET "L2P_DATA[1]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[2]" LOC = P18;
+NET "L2P_DATA[2]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[3]" LOC = T20;
+NET "L2P_DATA[3]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[4]" LOC = V21;
+NET "L2P_DATA[4]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[5]" LOC = V19;
+NET "L2P_DATA[5]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[6]" LOC = W22;
+NET "L2P_DATA[6]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[7]" LOC = Y22;
+NET "L2P_DATA[7]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[8]" LOC = P22;
+NET "L2P_DATA[8]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[9]" LOC = R22;
+NET "L2P_DATA[9]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[10]" LOC = T21;
+NET "L2P_DATA[10]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[11]" LOC = T19;
+NET "L2P_DATA[11]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[12]" LOC = V22;
+NET "L2P_DATA[12]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[13]" LOC = V20;
+NET "L2P_DATA[13]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[14]" LOC = W20;
+NET "L2P_DATA[14]" IOSTANDARD = "SSTL18_I";
+NET "L2P_DATA[15]" LOC = Y21;
+NET "L2P_DATA[15]" IOSTANDARD = "SSTL18_I";
+
+NET "L2P_DFRAME" LOC = U22;
+NET "L2P_DFRAME" IOSTANDARD = "SSTL18_I";
+
+NET "L2P_VALID" LOC = T18;
+NET "L2P_VALID" IOSTANDARD = "SSTL18_I";
+
+NET "L2P_CLKN" LOC = K22;
+NET "L2P_CLKN" IOSTANDARD = "DIFF_SSTL18_I";
+NET "L2P_CLKP" LOC = K21;
+NET "L2P_CLKP" IOSTANDARD = "DIFF_SSTL18_I";
+
+NET "L2P_EDB" LOC = U20;
+NET "L2P_EDB" IOSTANDARD = "SSTL18_I";
+
+
+#------------------------------
+#--  Outbound Buffer Status  --
+#------------------------------
+NET "L2P_RDY" LOC = U19;
+NET "L2P_RDY" IOSTANDARD = "SSTL18_I";
+
+NET "L_WR_RDY[0]" LOC = R20;
+NET "L_WR_RDY[0]" IOSTANDARD = "SSTL18_I";
+NET "L_WR_RDY[1]" LOC = T22;
+NET "L_WR_RDY[1]" IOSTANDARD = "SSTL18_I";
+
+NET "P_RD_D_RDY[0]" LOC = N16;
+NET "P_RD_D_RDY[0]" IOSTANDARD = "SSTL18_I";
+NET "P_RD_D_RDY[1]" LOC = P19;
+NET "P_RD_D_RDY[1]" IOSTANDARD = "SSTL18_I";
+
+NET "TX_ERROR" LOC = M17;
+NET "TX_ERROR" IOSTANDARD = "SSTL18_I";
+
+NET "VC_RDY[0]" LOC = B21;
+NET "VC_RDY[0]" IOSTANDARD = "SSTL18_I";
+NET "VC_RDY[1]" LOC = B22;
+NET "VC_RDY[1]" IOSTANDARD = "SSTL18_I";
+
+
 

@@ -2,16 +2,22 @@
 # DLS Communication Controller clock constraints
 #
 
-NET "fpga_clk_p" TNM_NET = fpga_clk_p;
-TIMESPEC TS_fpga_clk_p = PERIOD "fpga_clk_p" 8 ns HIGH 50%;
-
 NET "si57x_clk_p" TNM_NET = GT_REFCLK;
 TIMESPEC TS_gtx_clk_p = PERIOD "GT_REFCLK" 106.25 MHz HIGH 50%;
 
-NET "fofb_cc_top_wrapper/fofb_cc_top/userclk" TNM_NET = USERCLK;
+NET "L_CLKP" TNM_NET = "l_clkp_grp";
+TIMESPEC TS_l_clkp = PERIOD "l_clkp_grp" 5 ns HIGH 50%;
+
+NET "P2L_CLKP" TNM_NET = "p2l_clkp_grp";
+TIMESPEC TS_p2l_clkp = PERIOD "p2l_clkp_grp" 5 ns HIGH 50%;
+
+NET "P2L_CLKN" TNM_NET = "p2l_clkn_grp";
+TIMESPEC TS_p2l_clkn = PERIOD "p2l_clkn_grp" 5 ns HIGH 50%;
+
+NET "fofb_cc_top_wrapper_inst/fofb_cc_top/txoutclk" TNM_NET = USERCLK;
 TIMESPEC TS_USERCLK = PERIOD "USERCLK" 106.25 MHz HIGH 50%;
 
-NET "fofb_cc_top_wrapper/fofb_cc_top/userclk_2x" TNM_NET = USERCLK_2X;
+NET "fofb_cc_top_wrapper_inst/fofb_cc_top/userclk_2x" TNM_NET = USERCLK_2X;
 TIMESPEC TS_USERCLK_2X = PERIOD "USERCLK_2X" 212.5 MHz HIGH 50%;
 
 

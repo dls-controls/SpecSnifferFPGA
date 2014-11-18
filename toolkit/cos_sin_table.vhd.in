@@ -1,0 +1,28 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity generic_sprom is
+    port (
+        clk_i : in std_logic;
+        addr_i : in unsigned(9 downto 0);
+        dat_o : out std_logic_vector(31 downto 0)
+    );
+end;
+
+architecture rtl of generic_sprom is
+    type lookup_t is array(0 to 1023) of std_logic_vector(31 downto 0);
+    signal table : lookup_t := (
+        @TABLE_BODY@
+    );
+
+    attribute ram_style : string;
+    attribute ram_style of table : signal is "block";
+
+begin
+    process (clk_i) begin
+        if rising_edge(clk_i) then
+            dat_o <= table(to_integer(addr_i));
+        end if;
+    end process;
+end;

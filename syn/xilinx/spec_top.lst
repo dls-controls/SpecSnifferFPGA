@@ -1,3 +1,5 @@
+vhdl work       "../../rtl/spec_pkg/vhdl/spec_defines.vhd"
+
 vhdl work       "../../rtl/spec_si57x/vhdl/pulse2pulse.vhd"
 vhdl work       "../../rtl/spec_si57x/vhdl/i2c_master_stellar_cmd.vhd"
 vhdl work       "../../rtl/spec_si57x/vhdl/i2c_master_bit_ctrl.vhd"
@@ -6,5 +8,17 @@ vhdl work       "../../rtl/spec_si57x/vhdl/i2c_master.vhd"
 vhdl work       "../../rtl/spec_si57x/vhdl/i2c_master_top.vhd"
 vhdl work       "../../rtl/spec_si57x/vhdl/spec_si57x.vhd"
 
+vhdl work       "../../rtl/spec_clk_if/vhdl/spec_clk_if.vhd"
+
+vhdl work       "../../rtl/spec_wishbone/vhdl/wb_addr_decoder.vhd"
+vhdl work       "../../rtl/spec_wishbone/vhdl/dma_controller_wb_slave.vhd"
+vhdl work       "../../rtl/spec_wishbone/vhdl/dma_wb_slave_wrapper.vhd"
+vhdl work       "../../rtl/spec_wishbone/vhdl/syscsr_wb_slave.vhd"
+
+verilog work    "../../rtl/spec_top/verilog/BMD_64_RWDMA_FSM.v"
+vhdl work       "../../rtl/spec_top/vhdl/dma_controller.vhd"
+vhdl work       "../../rtl/spec_top/vhdl/gn4124_core.vhd"
 vhdl work       "../../rtl/spec_top/vhdl/fofb_cc_top_wrapper.vhd"
+vhdl work       "../../rtl/spec_top/vhdl/generic_sprom.vhd"
+vhdl work       "../../rtl/spec_top/vhdl/freq_cnt16.vhd"
 vhdl work       "../../rtl/spec_top/vhdl/spec_top.vhd"

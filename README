@@ -1,0 +1,51 @@
+/* SpecSniffer: Diamond FA Sniffer on OHWR SPEC Board
+ *
+ * The FA Sniffer Firmware is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or (at your
+ * option) any later version.
+ *
+ * The FA sniffer firmware is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General
+ * Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc., 51
+ * Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+ *
+ * Contact:
+ *      Dr. Isa Uzun,
+ *      Diamond Light Source Ltd,
+ *      Diamond House,
+ *      Chilton,
+ *      Didcot,
+ *      Oxfordshire,
+ *      OX11 0DE
+ *      isa.uzun@diamond.ac.uk
+ *
+ * The FA sniffer card captures a stream of Fast Acquisition frames from the
+ * FA network and writes them to memory using PCIe DMA transfer.
+ * A new frame arrives every 100 microseconds, and the sniffer has no control
+ * over this data stream. */
+
+
+The project is back compatible with existing Diamond FA Sniffer running on
+Xilinx ML555 board.
+
+However, the kernel driver has some extra work to do:
+    - There additional registers on BAR0 to get some diagnostics information on
+design clocking resources.
+    - PCIe configuration space on BAR4 must be configured to set up external GN4124 Pcie clock frequencies, and MSI interrupts.
+
+NOT SUPPORTED (,yet):
+
+- Pci-e TLP size is hardwired to 128 Bytes (unlike ML555).
+- CC NodeID for the sniffer board is hardwired to 0 (same on ML555 design).
+- CC Frame length is hardwired to 7500 clock cycles (same on ML555 design).
+- Link Errors are not reported. User should check partner BPM's status information (it is reported on ML555). User can also check link_partner whihc is reported.
+
+Usage:
+
+Makefile contains an upload target to configure the FPGA using ISE generated
+spec_top.bin file, and the speclib library. The target PC in the Makefile where the board is installed should be modifed for correct ssh connection.

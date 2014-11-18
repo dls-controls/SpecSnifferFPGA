@@ -1,0 +1,504 @@
+peripheral {
+  name = "GN4124 core DMA controller ";
+  description = "Wishbone slave for the DMA controller of the GN4124 core";
+  hdl_entity = "dma_controller_wb_slave";
+
+  prefix = "dma";
+
+  reg {
+    name = "dcsr";
+    prefix = "dcsr";
+    field {
+      name = "Device Control and Status Register";
+      type = SLV;
+      size = 32;
+      load = LOAD_EXT;
+      access_bus = READ_WRITE;
+      access_dev = READ_WRITE;
+      clock = "clk_i"
+    };
+  };
+
+  reg {
+    name = "ddmacr";
+    prefix = "ddmacsr";
+    field {
+      name = "Device DMA Control Status Register";
+      type = SLV;
+      size = 32;
+      load = LOAD_EXT;
+      access_bus = READ_WRITE;
+      access_dev = READ_WRITE;
+      clock = "clk_i"
+    };
+  };
+
+  reg {
+    name = "wdmatlpa";
+    prefix = "wdmatlpa";
+    field {
+      name = "Write DMA Host Lower Address";
+      type = SLV;
+      size = 32;
+      load = LOAD_EXT;
+      access_bus = READ_WRITE;
+      access_dev = READ_WRITE;
+      clock = "clk_i"
+    };
+  };
+
+  reg {
+    name = "wdmatlps";
+    prefix = "wdmatlps";
+    field {
+      name = "Write DMA TLP Size";
+      type = SLV;
+      size = 32;
+      load = LOAD_EXT;
+      access_bus = READ_WRITE;
+      access_dev = READ_WRITE;
+      clock = "clk_i"
+    };
+  };
+
+  reg {
+    name = "wdmatlpc";
+    prefix = "wdmatlpc";
+    field {
+      name = "write DMA TLP count";
+      type = SLV;
+      size = 32;
+      load = LOAD_EXT;
+      access_bus = READ_WRITE;
+      access_dev = READ_WRITE;
+      clock = "clk_i"
+    };
+  };
+
+  reg {
+    name = "wdmatlpp";
+    prefix = "wdmatlpp";
+    field {
+      name = "write DMA pattern";
+      type = SLV;
+      size = 32;
+      load = LOAD_EXT;
+      access_bus = READ_WRITE;
+      access_dev = READ_WRITE;
+      clock = "clk_i"
+    };
+  };
+
+  reg {
+    name = "rdmatlpp";
+    prefix = "rdmatlpp";
+    field {
+      name = "read DMA expected pattern";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+  reg {
+    name = "rdmatlpa";
+    prefix = "rdmatlpa";
+    field {
+      name = "read DMA TLP address";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+  reg {
+    name = "rdmatlps";
+    prefix = "rdmatlps";
+    field {
+      name = "read DMA TLP size";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+  reg {
+    name = "rdmatlpc";
+    prefix = "rdmatlpc";
+    field {
+      name = "read DMA TLP count";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+
+  reg {
+    name = "wdmaperf";
+    prefix = "wdmaperf";
+    field {
+      name = "write DMA performace";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+  reg {
+    name = "rdmaperf";
+    prefix = "rdmaperf";
+    field {
+      name = "read DMA performace";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+
+  reg {
+    name = "rdmastat";
+    prefix = "rdmastat";
+    field {
+      name = "read DMA status";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+
+  reg {
+    name = "nrdcomp";
+    prefix = "nrdcomp";
+    field {
+      name = "Number of Read Completion";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+
+  reg {
+    name = "rcompdsizw";
+    prefix = "rcompdsizw";
+    field {
+      name = "Read Completion Data Size";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+
+  reg {
+    name = "dlwstat";
+    prefix = "dlwstat";
+    field {
+      name = "Device Link Width Status";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+
+  reg {
+    name = "dltrsstat";
+    prefix = "dltrsstat";
+    field {
+      name = "Device Link Transaction Size Status";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+
+  reg {
+    name = "dmisccont";
+    prefix = "dmisccont";
+    field {
+      name = "Device Miscellaneous Control";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+
+  reg {
+    name = "ccfaiirqclr";
+    prefix = "ccfaiirqclr";
+    field {
+      name = "CC FAI interrupt clear register";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+
+
+  reg {
+    name = "na0";
+    prefix = "na0";
+    field {
+      name = "Not Used 0";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na1";
+    prefix = "na1";
+    field {
+      name = "Not Used 1";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na2";
+    prefix = "na2";
+    field {
+      name = "Not Used 2";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na3";
+    prefix = "na3";
+    field {
+      name = "Not Used 3";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na4";
+    prefix = "na4";
+    field {
+      name = "Not Used 4";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na5";
+    prefix = "na5";
+    field {
+      name = "Not Used 5";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na6";
+    prefix = "na6";
+    field {
+      name = "Not Used 6";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na7";
+    prefix = "na7";
+    field {
+      name = "Not Used 7";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na8";
+    prefix = "na8";
+    field {
+      name = "Not Used 8";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na9";
+    prefix = "na9";
+    field {
+      name = "Not Used 9";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na10";
+    prefix = "na10";
+    field {
+      name = "Not Used 10";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na11";
+    prefix = "na11";
+    field {
+      name = "Not Used 11";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "na12";
+    prefix = "na12";
+    field {
+      name = "Not Used 12";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+    };
+  };
+  reg {
+    name = "ccfaicfgval";
+    prefix ="ccfaicfgval";
+    field {
+      name = "Communication Controller FAI Value";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+      clock = "fai_clk_i"
+    };
+  };
+
+  reg {
+    name = "wdmastatus";
+    prefix ="wdmastatus";
+    field {
+      name = "Write DMA Status Register";
+      type = SLV;
+      size = 32;
+      access_bus = READ_ONLY;
+      access_dev = WRITE_ONLY;
+      clock = "clk_i"
+    };
+  };
+
+  reg {
+    name = "linkstatus";
+    prefix ="linkstatus";
+    field {
+      name = "Communication Controller Link Status";
+      type = SLV;
+      size = 32;
+      access_bus = READ_ONLY;
+      access_dev = WRITE_ONLY;
+      clock = "fai_clk_i"
+    };
+  };
+
+  reg {
+    name = "frameerrcnt";
+    prefix ="frameerrcnt";
+    field {
+      name = "Communication Controller Frame Error Status";
+      type = SLV;
+      size = 32;
+      access_bus = READ_ONLY;
+      access_dev = WRITE_ONLY;
+      clock = "fai_clk_i"
+    };
+  };
+
+  reg {
+    name = "softerrcnt";
+    prefix ="softerrcnt";
+    field {
+      name = "Communication Controller Soft Error Status";
+      type = SLV;
+      size = 32;
+      access_bus = READ_ONLY;
+      access_dev = WRITE_ONLY;
+      clock = "fai_clk_i"
+    };
+  };
+
+  reg {
+    name = "harderrcnt";
+    prefix ="harderrcnt";
+    field {
+      name = "Communication Controller Hard Error Status";
+      type = SLV;
+      size = 32;
+      access_bus = READ_ONLY;
+      access_dev = WRITE_ONLY;
+      clock = "fai_clk_i"
+    };
+  };
+
+  reg {
+    name = "nodeid";
+    prefix ="nodeid";
+    field {
+      name = "Communication Controller NodeID";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+      clock = "fai_clk_i"
+    };
+  };
+
+  reg {
+    name = "timeframelen";
+    prefix ="timeframelen";
+    field {
+      name = "Communication Controller Timeframe Length";
+      type = SLV;
+      size = 32;
+      access_bus = READ_WRITE;
+      access_dev = READ_ONLY;
+      clock = "fai_clk_i"
+    };
+  };
+
+};

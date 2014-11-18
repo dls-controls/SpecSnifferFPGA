@@ -9,7 +9,7 @@ use work.fofb_cc_pkg.all;
 -----------------------------------------------
 entity fofb_cc_top_wrapper is
     generic (
-        ID                      : integer := 250;
+        ID                      : integer := 0;
         SIM_GTPRESET_SPEEDUP    : integer := 0;
         LANE_COUNT              : integer := 2
     );
@@ -21,12 +21,7 @@ entity fofb_cc_top_wrapper is
         sysclk_i                : in  std_logic;
         sysreset_n_i            : in  std_logic;
         -- FOFB communication controller configuration interface
-        fai_cfg_a_o             : out std_logic_vector(10 downto 0);
-        fai_cfg_d_o             : out std_logic_vector(31 downto 0);
-        fai_cfg_d_i             : in  std_logic_vector(31 downto 0);
-        fai_cfg_we_o            : out std_logic;
         fai_cfg_clk_o           : out std_logic;
-        fai_cfg_val_i           : in  std_logic_vector(31 downto 0);
         -- serial I/Os for eight RocketIOs on the Libera
         fai_rio_rdp_i           : in  std_logic_vector(LANE_COUNT-1 downto 0);
         fai_rio_rdn_i           : in  std_logic_vector(LANE_COUNT-1 downto 0);
@@ -39,7 +34,12 @@ entity fofb_cc_top_wrapper is
         timeframe_end_rise_o    : out std_logic;
         -- Higher-level integration interface (used for PMC)
         fofb_dma_ok_i           : in  std_logic;
-        fofb_node_mask_o        : out std_logic_vector(NodeNum-1 downto 0)
+        fofb_node_mask_o        : out std_logic_vector(NodeNum-1 downto 0);
+        --
+        dma_ccfaicfgval_i       : in  std_logic_vector(31 downto 0);
+        dma_linkstatus_o        : out std_logic_vector(31 downto 0);
+        dma_nodeid_i            : in  std_logic_vector(31 downto 0);
+        dma_timeframelen_i      : in  std_logic_vector(31 downto 0)
 );
 end fofb_cc_top_wrapper;
 
@@ -58,6 +58,7 @@ fofb_cc_top : entity work.fofb_cc_top
     generic map (
         ID                      => ID,
         DEVICE                  => SNIFFER,
+        INTERLEAVED             => true,
         SIM_GTPRESET_SPEEDUP    => SIM_GTPRESET_SPEEDUP,
         LANE_COUNT              => LANE_COUNT
     )
@@ -74,12 +75,12 @@ fofb_cc_top : entity work.fofb_cc_top
         fai_fa_data_valid_i     => '0',
         fai_fa_d_i              => (others => '0'),
 
-        fai_cfg_a_o             => fai_cfg_a_o,
-        fai_cfg_d_o             => fai_cfg_d_o,
-        fai_cfg_d_i             => fai_cfg_d_i,
-        fai_cfg_we_o            => fai_cfg_we_o,
+        fai_cfg_a_o             => open,
+        fai_cfg_d_o             => open,
+        fai_cfg_d_i             => (others => '0'),
+        fai_cfg_we_o            => open,
         fai_cfg_clk_o           => fai_cfg_clk_o,
-        fai_cfg_val_i           => fai_cfg_val_i,
+        fai_cfg_val_i           => dma_ccfaicfgval_i,
 
         toa_rstb_i              => '0',
         toa_rden_i              => '0',
@@ -112,7 +113,8 @@ fofb_cc_top : entity work.fofb_cc_top
         fofb_bpm_count_o        => open,
         fofb_dma_ok_i           => fofb_dma_ok_i,
         fofb_node_mask_o        => fofb_node_mask_o,
-        fofb_timestamp_val_o    => open
+        fofb_timestamp_val_o    => open,
+        fofb_link_status_o      => dma_linkstatus_o
     );
 end structure;
 

@@ -3,12 +3,12 @@ SYSTEM = spec_top
 
 # Design dependant IP diretories
 CC_IP_DIR = ../../rtl/spec_commsctrl/rtl
+OHWR_IP_DIR = ../../rtl/ip_cores/gn4124-core/hdl/spec/ip_cores
 
 # Coregen IP netlist files
 NETLIST_DIR = ../implementation
 COREGEN_NGC_FILES = $(NETLIST_DIR)/fofb_cc_rx_fifo.ngc \
                     $(NETLIST_DIR)/fofb_cc_tx_fifo.ngc
-
 
 # ISE tools outputs
 LIST_FILE = $(SYSTEM).lst
@@ -20,6 +20,7 @@ POSTSYN_NETLIST = $(SYSTEM).ngc
 NGD_FILE = $(SYSTEM).ngd
 MAPPED_NCD_FILE = $(SYSTEM)_map.ncd
 ROUTED_NCD_FILE = $(SYSTEM).ncd
+PCF_FILE = $(SYSTEM).pcf
 BIT_FILE = $(SYSTEM).bit
 PROM_FILE = $(SYSTEM).mcs
 BMM_FILE = $(SYSTEM).bmm

@@ -1,0 +1,82 @@
+-- Select the GN4124 Primary BFM
+model %d0
+
+-- Initialize the BFM to its default state
+init
+
+-- Initialize the Primary GN412x BFM model
+--------------------------------------------------------------------
+-- These address ranges will generate traffic from the BFM to the FPGA
+-- bar BAR ADDR SIZE VC TC S
+bar     0 FF00000000000000 08000000 0 7 0
+
+-- This allocates a RAM block inside the BFM for the FPGA to access
+-- bfm_bar BAR ADDR SIZE
+bfm_bar 0 0000000040000000 20000000
+bfm_bar 1 0000000020000000 20000000
+
+-- Drive reset to the FPGA
+reset %d16
+
+-- Wait until the FPGA is un-reset and ready for traffic on the local bus
+wait   %d64
+
+--------------------------------------------------------------------
+-- Configure and Start Communication Controller
+--------------------------------------------------------------------
+wr FF00000000000080 F 40000000
+wr FF00000000000080 F 40000008
+wait   %d64
+
+--------------------------------------------------------------------
+-- Configure and Start DMA Controller on FPGA
+--------------------------------------------------------------------
+-- 1./ prepare_dma()
+-- TLP Count (2K/0x80)
+wr FF00000000000010 F 00000010
+-- Block Length (#of 2K timeframe blocks)
+wr FF00000000000014 F 00000100
+
+-- 2./ set_dma_buffer()
+wr FF00000000000008 F 40000000
+wr FF0000000000000C F 00080020
+
+-- 3./ Initial Reset
+wr FF00000000000000 F 40000001
+
+-- Start WDMA
+wr FF00000000000004 F 00000021
+
+-- Write next DMA address
+wait   %d10000
+wr FF00000000000008 F 40000000
+wr FF0000000000000C F 00080020
+
+-- Write next DMA address
+wait   %d10000
+wr FF00000000000008 F 40000000
+wr FF0000000000000C F 00080020
+
+-- Write next DMA address
+wait   %d10000
+wr FF00000000000008 F 40000000
+wr FF0000000000000C F 00080020
+
+-- Write next DMA address
+wait   %d10000
+wr FF00000000000008 F 40000000
+wr FF0000000000000C F 00080020
+
+-- Abort WDMA
+--wait   %d1500
+--wr FF00000000000004 F 00000002
+
+wait   %d7500
+
+wait %d
+
+flush  %d256
+
+wait   %d16
+
+sync
