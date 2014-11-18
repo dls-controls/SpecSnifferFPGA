@@ -42,7 +42,7 @@ $(UCF_FILE):
 	cat ../constr/spec_top.ucf > $(UCF_FILE)
 
 NGDBUILD_FLAGS = -sd $(NETLIST_DIR) -sd $(OHWR_IP_DIR)
-MAP_FLAGS      = -ol high -xe n -w
+MAP_FLAGS      = -ol high -xe n -register_duplication on -w
 PAR_FLAGS      = -ol high -xe n -w
 
 $(BIT_FILE): $(POSTSYN_NETLIST) $(UCF_FILE)
