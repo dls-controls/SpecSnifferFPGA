@@ -1,0 +1,8 @@
+*~
+
+rtl/spec_pkg/vhdl/*
+syn/run/*
+syn/implementation/*
+
+!.keep
+

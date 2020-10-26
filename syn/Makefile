@@ -10,8 +10,7 @@ all:
 	@echo " "
 	@echo " netlist  : Generates the netlist for the project for given target board "
 	@echo " bits     : Run implementation tools to generate the bitstream
-	@echo " download : Downloads the bitstream onto the board"
-	@echo " program  : Generate mcs file from bitstream and program the PROM"
+	@echo " program  : Generate mcs file from bitstream"
 
 netlist: $(POSTSYN_NETLIST)
 
@@ -56,12 +55,9 @@ smartxplorer : $(POSTSYN_NETLIST) $(UCF_FILE)
 	cp $(OHWR_IP_DIR)/*.ngc ../implementation
 	smartxplorer -p xc6slx45t-3fgg484 -uc spec_top.ucf -wd smartxplorer_results -sd ../implementation -m 12 -ra spec_top.ngc -l ../xilinx/hosts.lst -rcmd ssh
 
-download: $(BIT_FILE)
-	ssh iu42@$(JTAG_PC) 'cd $(CURDIR);$(XILINX)/bin/lin64/impact -batch ../xilinx/loadFPGA.cmd'
 
 $(PROM_FILE): $(BIT_FILE)
 	promgen -w -p mcs -o $(PROM_FILE) -x xcf128x -data_width 16 -u 0 $(BIT_FILE)
-	ssh iu42@$(JTAG_PC) 'cd $(CURDIR);$(XILINX)/bin/lin64/impact -batch ../xilinx/loadPROM.cmd'
 
 hwclean:
 	rm -rf $(NETLIST_DIR)

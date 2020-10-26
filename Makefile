@@ -4,13 +4,15 @@ include CONFIG
 # Xilinx ISE Environment
 #
 PLATFORM = $(shell uname -m)
+# Path to Xilinx ISE tools
+ISE_PATH=/dls_sw/apps/FPGA/Xilinx/14.7/ISE_DS
 
 ifeq ($(PLATFORM),x86_64)
-	ISE=source /dls_sw/apps/FPGA/Xilinx/14.7/ISE_DS/settings64.sh > /dev/null
+	ISE=source $(ISE_PATH)/settings64.sh > /dev/null
 endif
 
 ifeq ($(PLATFORM),i686)
-	ISE=source /dls_sw/apps/FPGA/Xilinx/14.7/ISE_DS/settings32.sh > /dev/null
+	ISE=source $(ISE_PATH)/settings32.sh > /dev/null
 endif
 
 #
@@ -20,24 +22,15 @@ export XIL_PAR_DESIGN_CHECK_VERBOSE=1
 #export XIL_PAR_ALLOW_LVDS_LOC_OVERRIDE
 
 #
-# Name of the PC to be used for programming the FPGA
-#
-HOST_PC=pc0035
-
-#
 # Hardware Platform Settings
 #
 CONFIG_FILE = rtl/spec_pkg/vhdl/spec_defines.vhd
 
 main: $(CONFIG_FILE)
 	$(ISE) && make -C syn/run -f ../Makefile bits
-	scp syn/run/spec_top.bin pc0035:/scratch/SpecSniffer/toolkit
 
-download:
-	$(ISE) && make -C syn/run -f ../Makefile JTAG_PC=$(JTAG_PC) download
-
-program:
-	$(ISE) && make -C syn/run -f ../Makefile JTAG_PC=$(JTAG_PC) program
+program: $(CONFIG_FILE)
+	$(ISE) && make -C syn/run -f ../Makefile program
 
 hwclean:
 	$(ISE) && make -C syn/run -f ../Makefile hwclean
@@ -60,16 +53,3 @@ clean:
 	rm -f $(CONFIG_FILE)
 	$(ISE) && make -C syn/run -f ../Makefile clean
 
-upload: syn/run/spec_top.bin
-	ssh iu42@$(HOST_PC) 'cd $(CURDIR); 			\
-			 mkdir -p /tmp/upload;		\
-			cp -a toolkit/* /tmp/upload;	\
-			cp $< /tmp/upload;		\
-			sudo /tmp/upload/config_cc.py;	\
-			rm -rf /tmp/upload'
-
-#	mkdir -p /tmp/upload
-#	cp -a toolkit/* /tmp/upload
-#	cp $< /tmp/upload
-#	sudo /tmp/upload/config_cc.py
-#	rm -rf /tmp/upload
